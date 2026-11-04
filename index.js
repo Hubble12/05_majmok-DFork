@@ -5,7 +5,8 @@ const app = express()
 app.use(express.json());          
 const port = process.env.PORT || 3000;
 
-
+addRoute()
+/*
 const monkeys = [
     {
         id: 1,
@@ -227,6 +228,19 @@ app.post('/banana', checkMonkeyId, createBanana);
 app.get('/banana/:id', getBananaIndex, getBanana);
 app.delete('/banana/:id', getBananaIndex, deleteBanana);
 app.patch('/banana/:id', getBananaIndex, checkMonkeyId, updateBanana);
+
+
+*/
+
+
+const { addRoutes } = require('./route/index.js');
+addRoutes(app);
+
+
+
+
+
+
 
 app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
