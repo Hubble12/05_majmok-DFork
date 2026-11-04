@@ -1,7 +1,10 @@
+require('dotenv').config(); 
 const express = require('express')
 const app = express()                       
 
-app.use(express.json());                    
+app.use(express.json());          
+const port = process.env.PORT || 3000;
+
 
 const monkeys = [
     {
@@ -236,6 +239,6 @@ app.use((req, res, next) => {
     });
 });
 
-var server = app.listen(3000, function () { 
-    console.log('Server running on http://localhost:3000'); // Konzolra kiír egy üzenetet, hogy a szerver fut és melyik porton érhető el.
+var server = app.listen(port, function () { 
+    console.log(`Server running on http://localhost:${port}`); // Konzolra kiír egy üzenetet, hogy a szerver fut és melyik porton érhető el.
 });
