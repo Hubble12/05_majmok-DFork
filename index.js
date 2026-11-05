@@ -1,61 +1,14 @@
 require('dotenv').config(); 
 const express = require('express')
 const app = express()                       
+const addRoutes = require('./route')
 
 app.use(express.json());          
 const port = process.env.PORT || 3000;
 
-addRoute()
-/*
-const monkeys = [
-    {
-        id: 1,
-        name: 'Joe',
-        sex: 'male',
-        species: 'gibbon'
 
-    },
-    {
-        id: 2,
-        name: 'Josephine',
-        sex: 'female',
-        species: 'gorilla'
-    },
-    {
-        id: 3,
-        name: 'Lajos',
-        sex: 'male',
-        species: 'orangutan'
-    }
-]
+addRoutes(app);
 
-let bananas = [
-    {
-        id: 1,
-        color: "yellow",
-        sweet: false,
-        monkeyId: null
-    },
-    {
-        id: 2,
-        color: "yellow",
-        sweet: true,
-        monkeyId: null
-    },
-    {
-        id: 3,
-        color: "green",
-        sweet: true,
-        monkeyId: null
-    }, {
-        id: 4,
-        color: "green",
-        sweet: false,
-        monkeyId: null
-    }
-]
-let globalMonkeyId = monkeys.length + 1;
-let globalBananaId = bananas.length + 1;
 
 const getMonkeys = (req, res, next) => {
     console.table(monkeys);
@@ -217,24 +170,13 @@ const deleteMonkeyBananas = (req, res, next) => {
     next();
 };
 
-app.get('/monkey', getMonkeys);
-app.post('/monkey', createMonkey);
-app.get('/monkey/:id', getMonkeyIndex, getMonkey);
-app.delete('/monkey/:id', getMonkeyIndex, deleteMonkeyBananas, deleteMonkey);
-app.patch('/monkey/:id', getMonkeyIndex, updateMonkey);
-
-app.get('/banana', getBananas); // Minden banán
-app.post('/banana', checkMonkeyId, createBanana);
-app.get('/banana/:id', getBananaIndex, getBanana);
-app.delete('/banana/:id', getBananaIndex, deleteBanana);
-app.patch('/banana/:id', getBananaIndex, checkMonkeyId, updateBanana);
 
 
-*/
 
 
-const { addRoutes } = require('./route/index.js');
-addRoutes(app);
+
+
+
 
 
 
